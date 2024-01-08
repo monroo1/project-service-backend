@@ -753,16 +753,15 @@ export interface ApiProposalProposal extends Schema.CollectionType {
     singularName: 'proposal';
     pluralName: 'proposals';
     displayName: 'Proposal';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
     Email: Attribute.Email;
-    Body: Attribute.Text;
     Name: Attribute.String;
     Phone: Attribute.String;
-    Link: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

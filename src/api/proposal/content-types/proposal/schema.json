@@ -4,7 +4,8 @@
   "info": {
     "singularName": "proposal",
     "pluralName": "proposals",
-    "displayName": "Proposal"
+    "displayName": "Proposal",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -14,16 +15,10 @@
     "Email": {
       "type": "email"
     },
-    "Body": {
-      "type": "text"
-    },
     "Name": {
       "type": "string"
     },
     "Phone": {
-      "type": "string"
-    },
-    "Link": {
       "type": "string"
     }
   }
