@@ -31,5 +31,16 @@ export default factories.createCoreService(
         throw error;
       }
     },
+    async ensureOrderExists() {
+      const entries = await strapi.entityService.findMany(
+        'api::portfolio-order.portfolio-order',
+        { limit: 1 }
+      );
+      
+      if (!entries.length) {
+        return await this.updateOrCreate({ order: [] });
+      }
+      return entries[0];
+    }
   })
 );
