@@ -19,12 +19,12 @@ const PortfolioOrderManager: React.FC = () => {
     const fetchData = async () => {
       try {
         const [portfolioRes, orderRes] = await Promise.all([
-          fetch('/api/portfolios', {
+          fetch('/strapi/api/portfolios', {
             method: 'GET',
             headers: { 'Content-Type': 'application/json' },
             credentials: 'include',
           }),
-          fetch('/api/portfolio-orders/1?fields=order', {
+          fetch('/strapi/api/portfolio-orders/1?fields=order', {
             method: 'GET',
             headers: { 'Content-Type': 'application/json' },
             credentials: 'include',
@@ -74,7 +74,7 @@ const PortfolioOrderManager: React.FC = () => {
     setItems(newItems);
     
     try {
-      const response = await fetch('/api/portfolio-orders/1?pass=PS22052025', {
+      const response = await fetch('/strapi/api/portfolio-orders/1?pass=PS22052025', {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',
