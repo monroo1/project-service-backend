@@ -1,0 +1,19 @@
+{
+  "kind": "collectionType",
+  "collectionName": "portfolio_orders",
+  "info": {
+    "singularName": "portfolio-order",
+    "pluralName": "portfolio-orders",
+    "displayName": "PortfolioOrder"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "order": {
+      "type": "json",
+      "required": true
+    }
+  }
+}
