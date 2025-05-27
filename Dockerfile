@@ -1,25 +1,25 @@
-# Используем единую среду для сборки и продакшн
 FROM node:18-alpine
 
-WORKDIR /opt/
+WORKDIR /opt/app
 
-# Копируем package.json и yarn.lock
+# Копируем зависимости и устанавливаем их
 COPY package.json yarn.lock ./
-
-# Устанавливаем зависимости с использованием yarn
 RUN yarn install --frozen-lockfile
 
-# Копируем все остальные файлы проекта
+# Копируем исходный код
 COPY . .
 
-# Строим проект (для Strapi)
+# Создаем папку uploads и устанавливаем права
+RUN mkdir -p public/uploads && \
+    chown -R node:node /opt/app
+
+# Сборка проекта
 RUN yarn build
 
-# Устанавливаем переменную окружения для продакшн-среды
-ENV NODE_ENV=production
+# Переключаемся на пользователя node
+USER node
 
-# Экспонируем порт 1337
+ENV NODE_ENV=production
 EXPOSE 1337
 
-# Запуск Strapi в продакшн-среде
 CMD ["yarn", "start"]
